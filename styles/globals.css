@@ -11,3 +11,7 @@
       @apply text-xs lg:text-sm font-medium mt-2 opacity-90 mb-1 tracking-wide;
     }
   }
+
+  .btn {
+    @apply rounded-full bg-transparent hover:bg-transparent;
+  }

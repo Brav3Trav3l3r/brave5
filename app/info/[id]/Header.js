@@ -2,10 +2,11 @@ import Image from 'next/image';
 import { getInfo } from '../../../utils/getInfo';
 import { GoPrimitiveDot } from 'react-icons/go';
 import Link from 'next/link';
+import info from '../../../data/info.json'
 
 const Header = async ({ id }) => {
 
-    const info = await getInfo(id)
+    // const info = await getInfo(id)
 
     return (
         <div className="header w-full relative mb-4 lg:mb-8 select-none">

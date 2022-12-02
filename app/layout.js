@@ -13,11 +13,11 @@ export default function RootLayout({ children }) {
     <html >
       <head>
       </head>
-      <body className='bg-zinc-900 lg:ml-20 mb-20 lg:mb-4 text-amber-50'>
-        <div className="nav relative z-50">
+      <body className='bg-zinc-900 mb-20 sm:mb-4 text-amber-50'>
+        <div className="nav fixed z-50">
           <Navbar />
         </div>
-        <div className="main z-0 ">
+        <div className="main mt-16 z-10 ">
           {children}
         </div>
       </body>
