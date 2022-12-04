@@ -8,8 +8,24 @@ module.exports = {
   theme: {
     extend: {},
   },
+  daisyui: {
+    themes: ["forest",
+      {
+        halloween: {
+          ...require("daisyui/src/colors/themes")["[data-theme=halloween]"],
+          "neutral": "#2C2C2C"}
+        },
+        {
+          forest: {
+            ...require("daisyui/src/colors/themes")["[data-theme=forest]"],
+            "neutral": "#2C2C2C"}
+          },
+        
+      ],
+  },
   plugins: [
     require('@tailwindcss/line-clamp'),
-    require('daisyui')
+    require('daisyui'),
+    require('tailwind-scrollbar-hide')
   ],
 }

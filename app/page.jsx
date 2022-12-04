@@ -6,7 +6,6 @@ export const revalidate = 60;
 const Home = () => {
     return ( 
         <div className="home px-2 space-y-8">
-            {/* <Anchor /> */}
             <Popular/>
             <Trending/>
         </div>

@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import Drawer from './Drawer'
+import Footer from './Footer'
 import Navbar from './Navbar'
 
 // import { Poppins } from '@next/font/google';
@@ -10,15 +12,16 @@ import Navbar from './Navbar'
 
 export default function RootLayout({ children }) {
   return (
-    <html >
+    <html className=''>
       <head>
       </head>
-      <body className='bg-zinc-900 mb-20 sm:mb-4 text-amber-50'>
-        <div className="nav fixed z-50">
+      <body className=' bg-base-100 text-base-content '>
+        <div className="nav fixed z-50 select-none">
           <Navbar />
         </div>
-        <div className="main mt-16 z-10 ">
+        <div className="main mt-16 lg:ml-80 select-none space-y-12 " >
           {children}
+          <Footer/>
         </div>
       </body>
     </html>

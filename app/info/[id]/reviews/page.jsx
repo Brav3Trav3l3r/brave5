@@ -1,7 +1,9 @@
 import { getInfo } from "../../../../utils/getInfo";
+import info from '../../../../data/info'
+
 
 const Reviews = async ({params:{id}}) => {
-    const info = await getInfo(id)
+    // const info = await getInfo(id)
 
     return ( 
         <div className="reviews p-4 mt-4 lg:mt-8 max-w-6xl mx-auto">

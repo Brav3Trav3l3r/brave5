@@ -17,21 +17,21 @@ const Overview = ({ info }) => {
     }
 
     return (
-        <div className="overview mb-16 min-h-fit max-w-6xl md:mx-auto overflow-hidden p-4 space-y-6 ">
-            {info.description ? <div className="description bg-zinc-800 p-4 pt-2 pb-0 rounded-lg">
-                <div className="para overflow-hidden md:w-3/4 mx-auto" style={{ height: showMe ? "max-content" : "150px" }} >
-                    <h1 className='mb-4 p-2 border-b-2 border-purple-500'>Description</h1>
+        <div className="overview  min-h-fit max-w-6xl md:mx-auto overflow-hidden p-4 space-y-12 ">
+            {info.description ? <div className="description bg-neutral p-4 pb-0 rounded">
+                <div className="para overflow-hidden  " style={{ height: showMe ? "max-content" : "150px" }} >
+                    <h1 className='mb-4 p-2 border-b-2 border-primary'>Description</h1>
                     {parse(`<p className='opacity-80 text-sm tracking-wide mb-4 mx-auto leading-relaxed'>${info.description}</p>`)}
                 </div>
-                <button onClick={toggle} className='select-none outline-none bg-zinc-800 mx-auto w-full pt-2 text-purple-500'>{showMe ? <IoIosArrowUp className=' w-full text-2xl' /> : <IoIosArrowDown className=' w-full text-2xl' />}</button>
+                <button onClick={toggle} className='select-none outline-none mx-auto w-full pt-2 text-primary'>{showMe ? <IoIosArrowUp className=' w-full text-2xl' /> : <IoIosArrowDown className=' w-full text-2xl' />}</button>
             </div> : ""}
 
             <div className="relations ">
-                <h1 className='mb-2 text-lg select-none'>Relations</h1>
-                <div className="cards flex overflow-x-auto gap-4">
+                <h1 className='mb-4 text-lg select-none font-semibold'>Relations</h1>
+                <div className="cards flex overflow-x-scroll scrollbar-hide gap-4">
                     {info.relations.map(item => (
-                        <Link href={`/info/${item.id}`} prefetch={false}  key={item.id}><div className="card w-28">
-                            <div className="image select-none relative w-28 h-40 rounded-md truncate">
+                        <Link href={`/info/${item.id}`} prefetch={false} key={item.id}><div className="card w-32">
+                            <div className="image select-none relative w-32 h-48 rounded truncate ">
                                 <Image src={item.image} fill={true} className='object-cover' alt={item.title.userPreferred ? item.title.userPreferred : item.title.romaji} />
                             </div>
                             <h1 className='title-third line-clamp-2'>{item.title.userPreferred ? item.title.userPreferred : item.title.romaji}</h1>
@@ -40,32 +40,36 @@ const Overview = ({ info }) => {
                 </div>
             </div>
 
-            <div className="characters">
-                <h1 className='mb-2 text-lg select-none'>Characters</h1>
-                <div className="cards flex overflow-x-auto gap-4 ">
+            <div className="characters relative">
+                <h1 className='mb-4 text-lg select-none font-semibold'>Characters</h1>
+                <div className="cards flex overflow-x-scroll gap-4 scrollbar-hide relative">
                     {info.characters.map((item => (
-                        <div className="card" key={uuidv4()}>
-                            <div className="image select-none w-24 h-24 relative rounded-lg truncate mb-2 ">
+                        <div className="card text-center" key={uuidv4()}>
+                            <div className="image select-none w-28 h-28 relative rounded-full hover:border-2 border-primary truncate mb-2 ">
                                 <Image src={item.image} fill={true} className='object-cover' alt={item.name.full} />
                             </div>
                             <h1 className='title-third line-clamp-2'>{item.name.full ? item.name.full : item.name.userPreferred}</h1>
                         </div>
                     )))}
+
                 </div>
+                <div className="gradient absolute right-0 top-4 bg-gradient-to-l from-base-100 w-20 h-full "></div>
+
             </div>
 
-            <div className="recomendations">
-                <h1 className='mb-2 text-lg select-none'>Recommendations</h1>
-                <div className="cards overflow-x-auto relative flex ">
+            <div className="recomendations relative">
+                <h1 className='mb-4 text-lg select-none font-semibold'>Recommendations</h1>
+                <div className="cards overflow-x-scroll scrollbar-hide relative flex ">
                     {info.recommendations.map(item => (
-                        <Link href={`/info/${item.id}`} prefetch={false}  key={item.id}>{item.id ? <div className="card mr-4 w-28" >
-                            <div className="image select-none relative w-28 h-40 rounded-md truncate">
+                        <Link href={`/info/${item.id}`} prefetch={false} key={item.id}>{item.id ? <div className="card mr-4 w-32" >
+                            <div className="image select-none relative w-32 h-48 rounded truncate">
                                 <Image src={item.image} fill={true} alt={item.title.userPreferred ? item.title.userPreferred : item.title.romaji} className='object-cover select-none' />
                             </div>
                             <h1 className='title-third line-clamp-2'>{item.title.userPreferred ? item.title.userPreferred : item.title.romaji}</h1>
                         </div> : <div className='hidden'></div>}</Link>
                     ))}
                 </div>
+                <div className="gradient absolute right-0 top-4 bg-gradient-to-l from-base-100 w-24 h-full "></div>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import { META } from "@consumet/extensions"
 const anilist = new META.Anilist();
-import { client } from "./redis";
+// import { client } from "./redis";
 
 export const getInfo = async (id) => {
     let startTime = performance.now()
